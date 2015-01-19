@@ -1,0 +1,1436 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <text>
+        <body>
+            <listBibl>
+                <biblFull>
+                    <sourceDesc>
+                        <biblStruct>
+                            <analytic>
+                                <title xml:lang="en">
+								Scientific Data Sharing and Re-use - Introduction to the Special Theme
+							</title>
+                                <author role="rsp">
+                                    <persName>
+                                        <forename type="first">
+										Costantino
+									</forename>
+                                        <surname>
+										Thanos
+									</surname>
+                                    </persName>
+                                </author>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Andreas
+									</forename>
+									<surname>
+										Rauber
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+                            <monogr>
+                                <imprint>
+                                    <biblScope unit="pp">
+									13
+								</biblScope> 
+                                    <date type="datePub">
+									2014
+								</date>
+                                </imprint>
+                            </monogr>
+                        </biblStruct>
+                    </sourceDesc>
+                    <profileDesc>
+                        <langUsage>
+                            <language ident="en"/>
+                        </langUsage>
+                        <abstract xml:lang="en">
+						Research data are essential to all scientific endeavours. Openness in the sharing of research results is one of the norms of modern science. The assumption behind this openness is that scientific progress requires results to be shared within the scientific community as early as possible in the discovery process.
+					</abstract>
+                    </profileDesc>
+                </biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Creating the Culture and Technology 
+for a Global Data Infrastructure
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Mark A.
+									</forename>
+									<surname>
+										Parson
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									14-15
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						The Research Data Alliance implements data sharing infrastructure by building social and technical bridges across cultures, scales and technologies.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								If Data Sharing is the Answer, 
+What is the Question?
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Christine L.
+									</forename>
+									<surname>
+										Borgman
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									15-16
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Data sharing has become policy enforced by governments, funding agencies, journals, and other stakeholders. Arguments in favor include leveraging investments in research, reducing the need to collect new data, addressing new research questions by reusing or combining extant data, and reproducing research, which would lead to greater accountability, transparency, and less fraud. Arguments against data sharing rarely are expressed in public fora, so popular is the idea. Much of the scholarship on data practices attempts to understand the socio-technical barriers to sharing, with goals to design infrastructures, policies, and cultural interventions that will overcome these barriers.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Enhancing the Value of Research Data 
+Enhancing the Value of Research Data in Australia
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Andrew	
+									</forename>
+									<surname>
+										Treloar
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Ross
+									</forename>
+									<surname>
+										Wilkinson
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									16-17
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Over the last seven years, Australia has had a strong investment in research infrastructure, and data infrastructure is a core part of that investment. 
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Beyond Data: Process Sharing and Reuse
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Tomasz
+									</forename>
+									<surname>
+										Miksa
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Andreas
+									</forename>
+									<surname>
+										Rauber
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									18-19
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Sharing and reuse of data is just an intermediate step on the way to reproducible computational science. The next step, sharing and reuse of processes that transform data, is enabled by process management plans, which benefit multiple stakeholders at all stages of research.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Open Data – What do Research Communities Really Think about it?
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Marie
+									</forename>
+									<surname>
+										Sandberg
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Rob
+									</forename>
+									<surname>
+										Baxter
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Damien
+									</forename>
+									<surname>
+										Lecarpentier
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Pawel
+									</forename>
+									<surname>
+										Kamocki
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									19-20
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Facilitating open access to research data is a principle endorsed by an increasing number of countries and international organizations, and one of the priorities flagged in the European Commission’s Horizon 2020 funding framework [1][2]. But what do researchers themselves think about it? How do they perceive the increasing demand for open access and what are they doing about it? What problems do they face, and what sort of help are they looking for?
+
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Providing Research Infrastructures with Data Publishing
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Massimiliano
+									</forename>
+									<surname>
+										Assante
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Leonardo
+									</forename>
+									<surname>
+										Candela
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Paolo
+									</forename>
+									<surname>
+										Manghi
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Pasquale
+									</forename>
+									<surname>
+										Pagano
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Donatella
+									</forename>
+									<surname>
+										Castelli
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									20-21
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						The purpose of data publishing is to release research data for others to use. However, its implementation remains an open issue. ‘Science 2.0 Repositories’ (SciRepos) address the publishing requirements arising in Science 2.0 by blurring the distinction between research life-cycle and research publishing. SciRepos interface with the ICT services of research infrastructures to intercept and publish research products while providing researchers with social networking tools for discovery, notification, sharing, discussion, and assessment of research products.  
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Sailing Towards Open Marine Data: the RITMARE Data Policy
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Anna
+									</forename>
+									<surname>
+										Basoni
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Stefano
+									</forename>
+									<surname>
+										Menegon
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Alessandro
+									</forename>
+									<surname>
+										Sarretta
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									22-23
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						A thorough understanding of marine and ocean phenomena calls for synergic multidisciplinary data provision. Unfortunately, much scientific data is still kept in drawers, and in many cases scientists and stakeholders are unaware of its existence. At the same time, researchers lament the time consuming nature of data collection and delivery. To overcome barriers to data access, the RITMARE project issued a data policy document, an agreement among participants on how to share the data and products either generated by the project activities or derived from previous activities, with the aim of recognizing the effort involved.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								RDA: The Importance of Metadata
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Keith G.
+									</forename>
+									<surname>
+										Jeffery
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Rebecca
+									</forename>
+									<surname>
+										Koskela
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									23-24
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						RDA is all about facilitating researchers to use data (including scholarly publications and grey literature used as data). This encompasses data collection, data validation, data management (including preservation/curation), data analysis, data simulation/modelling, data mining, data visualisation and interoperation of data.  Metadata are the key to all of these activities because they present to persons, organisations, computer systems and research equipment a representation of the dataset so that the dataset can be acted upon.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								RDA: Brokering with Metadata
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Stefano
+									</forename>
+									<surname>
+										Nativi
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Keith G.
+									</forename>
+									<surname>
+										Jeffery
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Rebecca
+									</forename>
+									<surname>
+										Koskela
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									25-26
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						RDA is about interoperation for dataset re-use.  Datasets exist over many nodes. Those described by metadata can be discovered; those cited by publications or datasets have navigational information. Consequentially two major forms of access requests exist: (1) download of complete datasets based on citation or (query over) metadata and (2) relevant parts of datasets instances from query across datasets. 
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Asking the Right Questions - Query-Based Data Citation to Precisely Identify Subsets of Data
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Stefan
+									</forename>
+									<surname>
+										Pröll
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Andreas
+									</forename>
+									<surname>
+										Rauber
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									26-27
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Data underpins most scientific endeavours. However, the question of how to enable scalable and precise citation of arbitrary subsets of static and specifically dynamic data still constitutes a non-trivial challenge.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Capturing the Experimental Context via Research Objects
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Catherine
+									</forename>
+									<surname>
+										Jones
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Brian
+									</forename>
+									<surname>
+										Matthews
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Antony
+									</forename>
+									<surname>
+										Wilson
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									28-29
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Data publication and sharing are becoming accepted parts of the data ecosystem to support research, and this is becoming recognised in the field of ‘facilities science’. We define facilities science as that undertaken at large-scale scientific facilities, in particular neutron and synchrotron x-ray sources, although similar characteristics can also apply to large telescopes, particle physics institutes, environmental monitoring centres and satellite observation platforms.  In facilities science, a centrally managed set of specialized and high value scientific instruments is made accessible to users to run experiments which require the particular characteristics of those instruments.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Engineering the Lifecycle of Data Sharing Agreements
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Mirko
+									</forename>
+									<surname>
+										Manea
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Marinella
+									</forename>
+									<surname>
+										Petrocchi
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									29-30
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Sharing data among groups of organizations and/or individuals is essential in a modern web-based society, being at the very core of scientific and business transactions. Data sharing, however, poses several problems including trust, privacy, data misuse and/or abuse, and uncontrolled propagation of data. We describe an approach to preserve privacy whilst data sharing based on scientific Data Sharing Agreements (DSA). 
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Cross-disciplinary Data Sharing and Reuse via gCube
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Leonardo
+									</forename>
+									<surname>
+										Candela
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Pasquale
+									</forename>
+									<surname>
+										Pagano
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									30-31
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Data sharing has been an emerging topic since the 1980’s. Science evolution – e.g. data-intensive, open science, science 2.0 – is revamping this discussion and calling for data infrastructures capable of properly managing data sharing and promoting extensive reuse. ‘gCube’, a software system that promotes the development of data infrastructures, boasts the distinguishing feature of providing its users with Virtual Research Environments where data sharing and reuse actually happens.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Toward Automatic Data Curation for Open Data
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Thilo
+									</forename>
+									<surname>
+										Stadelmann
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Mark
+									</forename>
+									<surname>
+										Cieliebak
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Kurt
+									</forename>
+									<surname>
+										Stockinger
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									32-33
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						In recent years large amounts of data have been made publicly available: literally thousands of open data sources exist, with genome data, temperature measurements, stock market prices, population and income statistics etc. However, accessing and combining data from different data sources is both non-trivial and very time consuming. These tasks typically take up to 80% of the time of data scientists. Automatic integration and curation of open data can facilitate this process.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								An Interactive Tool for Transparent Data Preprocessing
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Olivier
+									</forename>
+									<surname>
+										Parisot
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Thomas
+									</forename>
+									<surname>
+										Tamisier
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									33-34
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						We propose a visual tool to assist data scientists in data preprocessing. The tool interactively shows the transformation impacts and information loss, while keeping track of the applied preprocessing tasks.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								e-Infrastructure across Photon and Neutron Sources
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Juan
+									</forename>
+									<surname>
+										Bicarregui
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Brian
+									</forename>
+									<surname>
+										Matthews
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									35
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Today’s scientific research is conducted not just by single experiments but rather by sequences of related experiments or projects linked by a common theme that lead to a greater understanding of the structure, properties and behaviour of the physical world. This is particularly true of research carried out on large-scale facilities such as neutron and photon sources where there is a growing need for a comprehensive data infrastructure across these facilities to enhance the productivity of their science.   
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Understanding Open Data CSV File Structures for Reuse
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Paulo
+									</forename>
+									<surname>
+										Carvalho
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Patrick
+									</forename>
+									<surname>
+										Hitzelberger
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Gilles
+									</forename>
+									<surname>
+										Venturini
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									36
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Open Data (OD) is one of the most active movements contributing to the spread of information over the web. However, there is no common standard to publish datasets. Data is made available by different kind of entities (private and public), in various formats and according to different cost models. Even if the information is accessible, it does not mean it can be reused. Before being able to use it, an aspiring user must have knowledge about its structure, location of meaningful fields and other variables. Information visualization can help the user to understand the structure of OD datasets.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Bridging the Gap between Testing and Formal Verification in Ada Development
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Claude
+									</forename>
+									<surname>
+										Marché
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Johannes
+									</forename>
+									<surname>
+										Kanig
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									38-39
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Recent technological advances in formal deductive verification are benefiting industry users of programming language “Ada”. Mathematical proof complements existing test activities whilst reducing costs.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Simulations Show how Lightning Creates Antimatter
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Christoph
+									</forename>
+									<surname>
+										Köhn
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Ute
+									</forename>
+									<surname>
+										Ebert
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									40-41
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Active thunderstorms can emit gamma-rays and even antimatter. In fact, growing lightning channels can act as enormous particle accelerators above our heads. Researchers of the Multiscale Dynamics group at CWI have modelled and simulated these multiscale processes. They corrected previous calculations of gamma-ray emissions and, for the first time, computed the emission and propagation of positrons and neutrons. The neutrons are produced in nuclear reactions in air and might reach the ground.
+
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								GROBID - Information Extraction from Scientific Publications
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Patrice
+									</forename>
+									<surname>
+										Lopez
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Laurent
+									</forename>
+									<surname>
+										Romary
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									41-42
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Scientific papers potentially offer a wealth of information that allows one to put the corresponding work in context and offer a wide range of services to researchers. GROBID is a high performing software environment to extract such information as metadata, bibliographic references or entities in scientific texts.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								European Cyber-Security Research and Innovation
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Federico
+									</forename>
+									<surname>
+										Maggi
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Stefano
+									</forename>
+									<surname>
+										Zanero
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Evangelos
+									</forename>
+									<surname>
+										Markatos
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									43
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Looking back at the evolution of cyber criminal activities, from the nineties to the present day, we observe interesting trends coming together in what may seem a perfectly orchestrated scene. In parallel with the ‘security by design’, we recall the importance of reactive security in a field of ever-changing arms races.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								A Single Password for Everything?
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Jan
+									</forename>
+									<surname>
+										Camenisch
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Anja
+									</forename>
+									<surname>
+										Lehmann
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Anna
+									</forename>
+									<surname>
+										Lysyanskaya
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Gregory
+									</forename>
+									<surname>
+										Neven
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									44
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						The authors have developed a three-pronged approach that can secure all of your passwords for social media, email, cloud files, shopping and financial websites, with one practically hack-proof password. This password is secured by the new “Memento protocol.” 
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								SIREN – A Network Infrastructure for Emergencies
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Ioannis
+									</forename>
+									<surname>
+										Askoxylakis
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Paschalis
+									</forename>
+									<surname>
+										Papagrigoriou
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Diomedes
+									</forename>
+									<surname>
+										Kastanis
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Panos
+									</forename>
+									<surname>
+										Karampelas
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										George
+									</forename>
+									<surname>
+										Spanoudakis
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									45-46
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						The SIREN project (Secure, Interoperable, UAV-assisted, Rapid Emergency Deployment Communication and sensing Infrastructure) implements a secure, distributed, open, self-configured and emergency-aware network and service platform for automated, secure and dependable support of multiple mission critical applications in highly demanding and dynamic emergency environments.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								MYVISITPLANNER: Cloud-based Recommender for Personalized Tourism
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Ioannis
+									</forename>
+									<surname>
+										Refanidis
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Christos
+									</forename>
+									<surname>
+										Emmanouilidis
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									46-47
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Following the masses is one way of being a tourist. But the modern creative tourist is eager to forge a personal trail. Tailoring an itinerary to individual desires has always been the realm of highly specialized tour operators. Context-aware computing and recommender systems make it possible to offer personalized services in tourism. MYVISITPLANNER is a cloud-based service employing a recommender engine to offer personalized suggestions for tour activities and a planning tool to create appropriate tour itineraries. Recommendations are offered on the basis of a hybrid approach that takes into account both a taxonomy of possible activities, as well as user preferences and past recommendations, thus offering recommendations tailored to the visit profile.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Combinatorial Problem Solving for Fair Play
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Mats
+									</forename>
+									<surname>
+										Carlsson
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									48
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						To create a fair timetable for the men's handball league is a much more complex task than you would think. There are actually many more ways to do it than there are atoms in the universe, and only one of them is perfect. The trick is to find it! 
+
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Optimizing Text Quantifiers for Multivariate Loss Functions
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Andrea
+									</forename>
+									<surname>
+										Esuli
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										Fabrizio
+									</forename>
+									<surname>
+										Sebastiani
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									49
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						Quantification - also known as class prior estimation – is the task of estimating the relative frequencies of classes in application scenarios in which such frequencies may change over time. This task is becoming increasingly important for the analysis of large and complex datasets. Researchers from ISTI-CNR, Pisa, are working with supervised learning methods explicitly devised with quantification in mind.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+			<biblFull>
+				<sourceDesc>
+					<biblStruct>
+						<analytic>
+							<title xml:lang="en">
+								Dynacargo: An Urban Solid Waste Collection Information System
+							</title>
+							<author role="rsp">
+								<persName>
+									<forename type="first">
+										Artemios G.
+									</forename>
+									<surname>
+										Voyiatzis
+									</surname>
+								</persName>
+								<persName>
+									<forename type="first">
+										John
+									</forename>
+									<surname>
+										Gialelis
+									</surname>
+								</persName>
+							</author>
+						</analytic>
+						<monogr>
+							<imprint>
+								<biblScope unit="pp">
+									50-51
+								</biblScope>
+								<date type="datePub">
+									2014
+								</date>
+							</imprint>
+						</monogr>
+					</biblStruct>
+				</sourceDesc>
+				<profileDesc>
+					<langUsage>
+						<language ident="en"/>
+					</langUsage>
+					<abstract xml:lang="en">
+						The aim of the Dynamic Cargo Routing on-the-go (Dynacargo) project is to optimize the fleet operation for the city waste collection through urban-scale sensor networks, delay-tolerant networking, citizen participation, and dynamic routing.
+					</abstract>
+				</profileDesc>
+			</biblFull>
+		</listBibl>
+        </body>
+    </text>
+
