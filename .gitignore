@@ -1,2 +1,4 @@
 target/*
 *.old
+resources/output/*
+*.log
