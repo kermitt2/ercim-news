@@ -27,6 +27,8 @@ import com.itextpdf.text.pdf.PdfImportedPage;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import org.ercim.hal.HalFormater;
+
 /**
  * Process an ERCIM collection based on the PDF and a catalogue of each issue. 
  * 
@@ -46,8 +48,9 @@ public class ErcimProcess {
 	
 	public void run() {
 		try {
-			String resourcesPath = "resources/input";
-            File path = new File(resourcesPath + "/tei");
+			String resourcesPath = "resources" + File.separator + "input";
+			String halPath = "resources" + File.separator + "hal";
+            File path = new File(resourcesPath + File.separator + "tei");
             // we process all tei files in the input directory
 			
             File[] refFiles = path.listFiles(new FilenameFilter() {
@@ -59,6 +62,7 @@ public class ErcimProcess {
             if (refFiles == null)
                 return;
 			
+			// this lood on TEI files is on the ERCIM catalogue XML file
             for (File teifile : refFiles) {
                 String name = teifile.getName();
 				System.out.println("Parsing " + name);
@@ -88,48 +92,70 @@ public class ErcimProcess {
 				
 				InputStream pdfInput = new FileInputStream(pdf);
 				
-				// realise the PDF segmentation
+				// realise the PDF segmentation, bilbio items here are the biblio get from the ERCIM
+				// catalogue file
 				for(BiblioItem biblio : biblios) {
 					//System.out.println(biblio.toTEI(1));
-					
+					biblio.setVolume(volume);
+
 					//sub-directory for the volume if not exist
-					String outPath = "resources/output/" + volume;
+					String outPath = "resources" + File.separator + "output" + File.separator + volume;
 					File outDirectory = new File(outPath);
 					if (!outDirectory.exists()) {
 						outDirectory.mkdir();
 					}
+					String outHalPath = halPath + File.separator + volume;
+					File outHalDirectory = new File(outHalPath);
+					if (!outHalDirectory.exists()) {
+						outHalDirectory.mkdir();
+					}
+
 					//sub-directory for the article if not exist
-					String outArticlePath = outPath + "/" + biblio.getBeginPage();
+					String outArticlePath = outPath + File.separator + biblio.getBeginPage();
 					File outArticleDirectory = new File(outArticlePath);
 					if (!outArticleDirectory.exists()) {
 						outArticleDirectory.mkdir();
 					}
-					
-					String outPDFPath = outArticlePath + "/" + biblio.getBeginPage() + ".pdf";
+
+					// extracted article from the PDF
+					String outPDFPath = outArticlePath + File.separator + volume + "-" + 
+						biblio.getBeginPage() + ".pdf";
+					String outPDFHalPath = outHalPath + File.separator + volume + "-" + 
+						biblio.getBeginPage() + ".pdf";
 					OutputStream pdfOutput = new FileOutputStream(outPDFPath);
 					splitPDF(pdfPath, pdfOutput, biblio.getBeginPage(), biblio.getEndPage());
+					OutputStream pdfHalOutput = new FileOutputStream(outPDFHalPath);
+					pdfOutput = new FileOutputStream(outPDFHalPath);
+					splitPDF(pdfPath, pdfHalOutput, biblio.getBeginPage(), biblio.getEndPage());
 					
-					// output the header in TEI
+					// output the catalogue header in TEI
+		            DocumentSource documentSource = DocumentSource.fromPdf(new File(outPDFPath));
 					org.grobid.core.document.Document doc = 
-						new org.grobid.core.document.Document(outPDFPath, tmpPath.getAbsolutePath());
+						new org.grobid.core.document.Document(documentSource);
 					TEIFormater teiFormater = new TEIFormater(doc);
-					StringBuffer tei = teiFormater.toTEIHeader(biblio, true, false, null);
+					StringBuffer tei = teiFormater.toTEIHeader(biblio, false, null, false);
 		            tei.append("\t</text>\n");
 		            tei.append("</TEI>\n");
-					File teiHeaderFile = new File(outArticlePath + "/" + "header.tei.xml");
+					File teiHeaderFile = new File(outArticlePath + File.separator + "header.tei.xml");
 					FileUtils.writeStringToFile(teiHeaderFile, tei.toString(), "UTF-8");
 					
+					// contact chunk processing
+					biblio = grobidProcess.getContactChunk(doc, biblio);
+					
 					// output the header in BibTeX
-					File bibTexHeaderFile = new File(outArticlePath + "/" + "header.bib");
+					File bibTexHeaderFile = new File(outArticlePath + File.separator + "header.bib");
 					FileUtils.writeStringToFile(bibTexHeaderFile, biblio.toBibTeX(), "UTF-8");
 					
 					// save the pdf file assets
-					String outputAssetsPath = outArticlePath + "/assets";
+					String outputAssetsPath = outArticlePath + File.separator + "assets";
 					File outAssetsDirectory = new File(outputAssetsPath);
 					if (!outAssetsDirectory.exists()) {
 						outAssetsDirectory.mkdir();
 					}
-					grobidProcess.saveAssets(outPDFPath, outAssetsDirectory, tmpPath);
+					grobidProcess.saveAssets(outPDFPath, outputAssetsPath + File.separator + 
+						volume + "-" + biblio.getBeginPage());
+					List<String> assets = grobidProcess.saveAssets(outPDFPath, 
+						outHalPath + File.separator + volume + "-" + biblio.getBeginPage());
 					
 					// custom segmentation for ERCIM News
 					doc = grobidProcess.ercimSegmentation(outPDFPath, tmpPath, biblio);
@@ -138,11 +164,18 @@ public class ErcimProcess {
 					BiblioItem extractedHeader = grobidProcess.runHeader(doc);
 					
 					// output the extended header in TEI
-					tei = teiFormater.toTEIHeader(extractedHeader, true, false, null);
+					tei = teiFormater.toTEIHeader(extractedHeader, false, null, false);
 					tei.append("\t</text>\n");
 					tei.append("</TEI>\n");
-					File grobidHeaderFile = new File(outArticlePath + "/" + "header-grobid.tei.xml");
-					//FileUtils.writeStringToFile(grobidHeaderFile, tei.toString(), "UTF-8");					
+					File grobidHeaderFile = new File(outArticlePath + File.separator + "header-grobid.tei.xml");
+					FileUtils.writeStringToFile(grobidHeaderFile, tei.toString(), "UTF-8");			
+					
+					// output the extracted header in the HAL import format
+					File outputHAL = new File(outHalPath + File.separator + 
+						volume + "-" + biblio.getBeginPage() + ".tei.xml");
+					HalFormater halFormater = new HalFormater(doc);
+					StringBuilder teii = halFormater.format(biblio, extractedHeader, assets);
+					FileUtils.writeStringToFile(outputHAL, teii.toString(), "UTF-8");	
 					
 					// extract the bib references with Grobid 
 					List<BibDataSet> citations = grobidProcess.runReferences(doc);
@@ -163,7 +196,8 @@ public class ErcimProcess {
 						}
 					}
 					result.append("\t\t\t</listBibl>\n\t\t</back>\n\t</text>\n</TEI>\n");
-					File grobidCitationsFile = new File(outArticlePath + "/" + "citations-grobid.tei.xml");
+					File grobidCitationsFile = new File(outArticlePath + File.separator + 
+						"citations-grobid.tei.xml");
 					FileUtils.writeStringToFile(grobidCitationsFile, result.toString(), "UTF-8");	
 					
 					// output the references in BibTeX
@@ -177,23 +211,20 @@ public class ErcimProcess {
 					} 
 					File bibTexCitationsFile = new File(outArticlePath + "/" + "citations-grobid.bib");
 					FileUtils.writeStringToFile(bibTexCitationsFile, bibtex.toString(), "UTF-8");
+					File bibTexHalCitationsFile = new File(outHalPath + File.separator + 
+						volume + "-" + biblio.getBeginPage() + ".citations-grobid.bib");
+					FileUtils.writeStringToFile(bibTexHalCitationsFile, bibtex.toString(), "UTF-8");
 					
 					// extract the fulltext with Grobid
 					
 					// output the fulltext in TEI
-					
-					
-					
-					
-				}
-				
+					String fulltext = grobidProcess.runFullText(outPDFPath);
+					File fulltextFile = new File(outArticlePath + File.separator + "fulltext.tei.xml");
+					FileUtils.writeStringToFile(fulltextFile, fulltext, "UTF-8");
+				}	
 			}
-			
-		
-			
 		} 
 		catch (Exception e) {
-			// If an exception is generated, print a stack trace
 			e.printStackTrace();
 		} 
 		finally {

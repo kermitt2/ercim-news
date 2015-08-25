@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
+    xmlns:hal="http://hal.archives-ouvertes.fr/">
+    <text>
+        <body>
+            <listBibl>
+                <biblFull>
+                    <titleStmt>
+                        <!-- ajouter l'attribut de langue xml:lang="en" avant le titre -->
+                        <title xml:lang="en">GROBID - Information Extraction from Scientific Publications</title>
+                        <author role="aut">
+                            <persName> 
+                                <forename type="first">Patrice</forename>
+                                <surname>Lopez</surname>
+                            </persName>
+                            <!-- Info pour Patrice Lopez, pour les affiliations mettre l'info comme suit : nom établissement, pays dans la balise affiliation-->
+                            <!-- Info pour Patrice Lopez, si tu as nom, prénom et mail alors rajouter la balise auteur correspondant -->
+                            <affiliation ref="#struct-300009"></affiliation>
+                        </author>
+                        <author role="aut">
+                            <persName>
+                                <forename type="first">Laurent</forename>
+                                <surname>Romary</surname>
+                            </persName>
+                            <email>laurent.romary@inria.fr</email>
+                            <!-- Info pour Patrice Lopez, pour les affiliations mettre l'info comme suit : nom établissement, pays dans la balise affiliation -->
+                            <affiliation ref="#struct-300009"></affiliation>
+                        </author>
+                    </titleStmt>
+                    <editionStmt>
+                        <!-- Pour Patrice Lopez,Insérer autant de lignes "edition ref" que de fichiers à importer ; indiquer le nom du fichier dans l'attribut "target" ; préfixer les fichiers avec le n° d'article tel que : art-41 pour qu'aucun du projet fichier n'ait le même nom -->
+                       
+                        <edition>
+                            <ref type="file" subtype="greenPublisher" target="ftp://ftp.ccsd.cnrs.fr/41.pdf" n="1"/>  
+                            <ref type="annex" subtype="greenPublisher" target="ftp://ftp.ccsd.cnrs.fr/citations-grobid.bib" n="0"/> 
+                            <ref type="annex" subtype="greenPublisher" target="ftp://ftp.ccsd.cnrs.fr/image-1.jpg" n="1"/> 
+                            <ref type="annex" subtype="greenPublisher" target="ftp://ftp.ccsd.cnrs.fr/image-2.jpg" n="0"/> </edition>
+                    </editionStmt>
+                    <publicationStmt>
+                        <availability> 
+                            <!-- bien reporter la bonne url de licence CC ci-dessous -->
+                            <licence target="http://creativecommons.org/licenses/by/"/>
+                        </availability>
+                    </publicationStmt>
+                    <seriesStmt>
+                        <!-- A produire par Inria, ID des collections HAL -->
+                        <idno type="stamp" n="ERCIM-NEWS-100" />
+                        <idno type="stamp" n="ERCIM-NEWS"/>
+                        <idno type="stamp" n="ERCIM"/>
+                    </seriesStmt>
+                    <notesStmt>
+                        <note type="audience" n="2" /> <!-- voir le référentiel -->
+                        <note type="popular" n="1"/> <!-- voir le référentiel -->
+                        <note type="peer" n="1"/> <!-- voir le référentiel -->
+                     </notesStmt>
+                    <sourceDesc>
+                        <biblStruct>
+                            <analytic>
+                                <!-- on recopie les infos de la balise "titleStmt"-->
+                                <title xml:lang="en">GROBID - Information Extraction from Scientific Publications</title>
+                                <author role="aut">
+                                    <persName> 
+                                        <forename type="first">Patrice</forename>
+                                        <surname>Lopez</surname>
+                                    </persName>
+                                    <affiliation ref="#struct-300009"></affiliation>
+                                </author>
+                                <!-- si tu as nom, prénom et mail alors le role="crp" ; utilisable une seule fois -->
+                                <author role="crp">
+                                    <persName>
+                                        <forename type="first">Laurent</forename>
+                                        <surname>Romary</surname>
+                                    </persName>
+                                    <email>laurent.romary@inria.fr</email>
+                                    <affiliation ref="#struct-300009"></affiliation>
+                                </author>
+                            </analytic>
+                            <monogr>
+                                <!-- 20883 c'est le bon code de journal dans Hal pour ercim news -->
+                                <idno type="halJournalId">20883</idno>
+                                <!-- c'est le bon issn d'ercim news -->
+                                <idno type="issn">0926-4981</idno>   
+                             <imprint>
+                               <publisher> Ercim</publisher>
+                                 <!-- n° de la revue -->
+                               <biblScope unit="issue">100</biblScope>
+                                 <!-- n°s de pages de l'article -->
+                               <biblScope unit="pp">41-42</biblScope>
+                                 <!-- date de publication de l'article, rajouter le mois-->
+                                <date type="datePub">2015</date>
+                             </imprint>
+                            </monogr>
+                        </biblStruct>
+                    </sourceDesc>
+                    <profileDesc>
+                            <langUsage>
+                                <language ident="en"></language>
+                            </langUsage>
+                            <textClass>
+                                <classCode scheme="halDomain" n="info"> </classCode>
+                                <classCode scheme="halTypology" n="ART"> </classCode>
+                            </textClass>
+                        <abstract xml:lang="EN">Scientific papers potentially offer a wealth of in formation that allows one to put the corresponding work in context and offer a wide range of services to researchers. GROBID is a high performing software environment to extract such information as metadata,bibliographic references or entities in scientific texts</abstract>
+                            <!-- Si pas de résumé mettre la valeur "no abstract"-->
+                            <!-- On n'a pas de mots clés -->
+                        </profileDesc>
+                </biblFull>
+            </listBibl>
+        </body>
+    </text>      
+</TEI>

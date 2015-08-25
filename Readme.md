@@ -20,3 +20,35 @@ Main author and contact: Patrice Lopez (<patrice.lopez@inria.fr>)
 
 The ERCIM News PDF issue present in this project is included only for test purposes and is copyright ERCIM.
 In ERCIM News, all authors, as identified in each article, retain copyright of their work.
+
+## Build
+
+#### GROBID
+
+[GROBID](http://github.com/kermitt2/grobid) must be installed for running the ERCIM tool. 
+
+See the [GROBID documentation](http://grobid.readthedocs.org).
+
+Depending on your installation path, set the path to your GROBID home in the project property file (```ercim_news.properties```). 
+
+#### Build the tool
+
+```bash
+> mvn clean install
+```
+
+## Usage
+
+Required input:
+
+* PDF of the ERCIM news issue (example: ```resources/input/pdf/EN100-web.pdf```),
+
+* catalogue information in TEI (example: ```resources/input/tei/ercim100.xml```).
+
+The extraction process can be launched by the following command:
+
+```bash
+> mvn exec:exec -Pprocess_ercim 
+```
+
+The files for an importation in HAL Research Archive are generated under ```resources/hal/**volume**/```. Other generated files can be found ```resources/output/**volume**/```

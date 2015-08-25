@@ -112,9 +112,9 @@
 		<dependency>
 		    <groupId>org.grobid.core</groupId>
 		    <artifactId>grobid-core</artifactId>
-		    <version>0.3.0</version>
+		    <version>0.3.9-SNAPSHOT</version>
 		    <scope>system</scope>
-		    <systemPath>${project.basedir}/lib/grobid-core-0.3.0.jar</systemPath>
+		    <systemPath>${project.basedir}/lib/grobid-core-0.3.9-SNAPSHOT.jar</systemPath>
 		</dependency>
 		
 		<dependency>

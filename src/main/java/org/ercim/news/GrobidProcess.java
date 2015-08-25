@@ -3,12 +3,14 @@ package org.ercim.news;
 import org.grobid.core.utilities.GrobidPropertyKeys;
 import org.grobid.core.data.BiblioItem;
 import org.grobid.core.data.BibDataSet;
-import org.grobid.core.document.Document;
-import org.grobid.core.document.BasicStructureBuilder;
+import org.grobid.core.data.Person;
+import org.grobid.core.data.Affiliation;
+import org.grobid.core.document.*;
 import org.grobid.core.engines.Engine;
 import org.grobid.core.engines.EngineParsers;
 import org.grobid.core.engines.HeaderParser;
 import org.grobid.core.engines.CitationParser;
+import org.grobid.core.engines.AffiliationAddressParser;
 import org.grobid.core.engines.Segmentation;
 import org.grobid.core.engines.SegmentationLabel;
 import org.grobid.core.factory.GrobidFactory;
@@ -96,7 +98,9 @@ public class GrobidProcess {
 	public String runFullText(String pdfPath) {
 		String tei = null;
 		try {
-			//tei = engine.fullTextToTEI(pdfPath, false, false);
+			Document resultDoc = parsers.getFullTextParser().processing(pdfPath, false, 
+							false, 0, null, -1, -1, false, true);
+			tei = resultDoc.getTei();
 		} 
 		catch (Exception e) {
 			// If an exception is generated, print a stack trace
@@ -125,40 +129,35 @@ public class GrobidProcess {
             throw new GrobidResourceException("Cannot process pdf file, because temp path '" +
                     tmpPath.getAbsolutePath() + "' does not exists.");
         }
-        Document doc = new Document(input, tmpPath.getAbsolutePath());
+		
+        DocumentSource documentSource = DocumentSource.fromPdf(new File(input));
+		Document doc = new Document(documentSource);
+		
+        //Document doc = new Document(input, tmpPath.getAbsolutePath());
         String pathXML = null;
         try {
-            int startPage = -1;
-            int endPage = -1;
-            pathXML = doc.pdf2xml(true, false, startPage, endPage, input, tmpPath.getAbsolutePath(), false);
-            //with timeout,
-            //no force pdf reloading
-            // input is the pdf absolute path, tmpPath is the temp. directory for the temp. lxml file,
-            // path is the resource path
-            // and we extract images in the PDF file
-            if (pathXML == null) {
-                throw new GrobidResourceException("PDF parsing fails, " +
-                        "because path of where to store xml file is null.");
-            }
-            doc.setPathXML(pathXML);
             List<String> tokenizations = doc.addTokenizedDocument();
 
             if (doc.getBlocks() == null) {
                 throw new GrobidException("PDF parsing resulted in empty content");
             }
 
-			String content = Segmentation.getAllLinesFeatured(doc, false);
+			String content = Segmentation.getAllLinesFeatured(doc);
 			if ( (content != null) && (content.trim().length() > 0) ) {
 	            String labelledResult = ercimSegment(content, header);
-
-	            //FileUtils.writeStringToFile(new File("/tmp/x.txt"), labelledResult);
-				//FileUtils.writeStringToFile(new File("/tmp/x2.txt"), tokenizations.toString());
 
 	            // set the different sections of the Document object
 	            doc = BasicStructureBuilder.generalResultSegmentation(doc, labelledResult, tokenizations);
 
 				System.out.println(doc.getDocumentPieceText(doc.getDocumentPart(SegmentationLabel.HEADER)));
 				System.out.println("------------------");
+
+				try {
+					FileUtils.writeStringToFile(new File("/tmp/x_" + header.getBeginPage() + ".txt"), tokenizations.toString());
+				}
+				catch(Exception e) {
+					e.printStackTrace();
+				}
 
 				//System.out.println(doc.getDocumentPieceText(doc.getDocumentPart(SegmentationLabel.BODY)));
 				//System.out.println("------------------");
@@ -177,18 +176,17 @@ public class GrobidProcess {
             throw new GrobidException("An exception occurred while running Grobid.", e);
         } finally {
             // keep it clean when leaving...
-			
-            doc.cleanLxmlFile(pathXML, false);
+            documentSource.close(true);
         }
     }
   	
 	private String ercimSegment(String unlabeled, BiblioItem header) {
-		try {
+		/*try {
 			FileUtils.writeStringToFile(new File("/tmp/x.txt"), unlabeled);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		StringBuffer labeling = new StringBuffer();
 		
 		String[] lines = unlabeled.split("\n");
@@ -212,18 +210,20 @@ public class GrobidProcess {
 			}
 			prefix = prefix.trim();
 			
-			if (header.getTitle().startsWith(prefix)) {
+			if (header.getTitle().toLowerCase().startsWith(prefix.toLowerCase()) 
+				&& (previousTag.equals("<other>"))) {
 				currentTag = "<header>";
 			}
-			else if ( (previousTag.equals("<header>")) && (line.indexOf("BLOCKSTART") != -1) && 
-				!bold && (!line.startsWith("by")) ) {
+			else if ( (previousTag.equals("<header>")) && (line.indexOf("BLOCKSTART") != -1) 
+				&& (!bold) && (!line.startsWith("by")) ) {
 				currentTag = "<body>";
 			}
-			else if (prefix.startsWith("References") && (!previousTag.equals("<other>"))) {
+			else if (prefix.startsWith("Reference") && (!previousTag.equals("<other>"))) {
 				currentTag = "<references>";
 			}
-			else if ((prefix.startsWith("Email") || prefix.startsWith("E-mail")) 
-				&& (!previousTag.equals("<reference>"))) {
+			else if ((prefix.startsWith("Email") || prefix.startsWith("E-mail") 
+				|| prefix.startsWith("Please contact:")) 
+				&& (previousTag.equals("<references>"))) {
 				currentTag = "<other>";
 			}
 			else 
@@ -239,7 +239,7 @@ public class GrobidProcess {
 			previousTag = currentTag;
 		}
 		try {
-			FileUtils.writeStringToFile(new File("/tmp/x2.txt"), labeling.toString());
+			FileUtils.writeStringToFile(new File("/tmp/x2_" + header.getBeginPage() + ".txt"), labeling.toString());
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -249,9 +249,9 @@ public class GrobidProcess {
 	}
 	
 	/**
-	 * Save PDF assets (bitmap, vectorial) from a PDF
+	 * Save PDF assets (bitmap, vectorial) from a PDF and return the list of asset file names
 	 */
-	public void saveAssets(String input, File savePath, File tmpPath) {
+	public List<String> saveAssets(String input, String savePathString) {
         if (input == null) {
             throw new GrobidResourceException("Cannot process pdf file, because input file was null.");
         }
@@ -260,35 +260,27 @@ public class GrobidProcess {
             throw new GrobidResourceException("Cannot process pdf file, because input file '" +
                     inputFile.getAbsolutePath() + "' does not exists.");
         }
-        if (tmpPath == null) {
+        /*if (tmpPath == null) {
             throw new GrobidResourceException("Cannot process pdf file, because temp path is null.");
         }
         if (!tmpPath.exists()) {
             throw new GrobidResourceException("Cannot process pdf file, because temp path '" +
                     tmpPath.getAbsolutePath() + "' does not exists.");
-        }
-        if (savePath == null) {
+        }*/
+        if (savePathString == null) {
             throw new GrobidResourceException("Cannot save assets, because asset path is null.");
         }
-        if (!savePath.exists()) {
+        /*if (!savePath.exists()) {
             throw new GrobidResourceException("Cannot save assets, because asset path '" +
                     savePath.getAbsolutePath() + "' does not exists.");
-        }
-        Document doc = new Document(input, tmpPath.getAbsolutePath());
+        }*/
+		
+		List<String> results = new ArrayList<String>();
+        DocumentSource documentSource = DocumentSource.fromPdfWithImages(new File(input), -1, -1);
+		Document doc = new Document(documentSource);
         String pathXML = null;
         try {
-            int startPage = -1;
-            int endPage = -1;
-            pathXML = doc.pdf2xml(true, false, startPage, endPage, input, tmpPath.getAbsolutePath(), true);
-            //with timeout,
-            //no force pdf reloading
-            // input is the pdf absolute path, tmpPath is the temp. directory for the temp. lxml file,
-            // path is the resource path
-            // and we extract images in the PDF file
-            if (pathXML == null) {
-                throw new GrobidResourceException("PDF parsing fails, " +
-                        "because path of where to store xml file is null.");
-            }
+			pathXML = documentSource.getXmlFile().getPath();
 			// save the assets to the specified path
 			File asset_path = new File(pathXML + "_data");
 			
@@ -303,7 +295,7 @@ public class GrobidProcess {
             });
 
             if (refFiles == null)
-                return;
+                return null;
 			
             for (File assetFile : refFiles) {
                 String name = assetFile.getName();
@@ -313,22 +305,24 @@ public class GrobidProcess {
 					try {
 						System.out.println(assetFile.getPath());
 						final BufferedImage pbm = ImageIO.read(assetFile);
-					   	File output = new File(savePath.getAbsolutePath() + "/" + name.replace(".pbm",".png"));
+					   	File output = new File(savePathString + "." + name.replace(".pbm",".png"));
 			            if (pbm != null) {
 			                ImageIO.write(pbm, "png", output);
+							results.add(output.getName());
 			            }
 						else {
 							System.out.println("Fail reading file: " + assetFile.getPath());
 						}
-			        } 
+			        }
 					catch (Exception e) {
 			            System.out.println("Error converting: " + assetFile.getPath());
 			        }
 				}
 				else {
 					// simple file copy
-					File output = new File(savePath.getAbsolutePath() + "/" + name);
+					File output = new File(savePathString + "." + name);
 					FileUtils.copyFile(assetFile, output);
+					results.add(output.getName());
 				}
 			}	
 		}
@@ -337,7 +331,151 @@ public class GrobidProcess {
 		} 
 		finally {
             // keep it clean when leaving...
-            doc.cleanLxmlFile(pathXML, true);
+            documentSource.close(true);
         }
+		return results;
 	}
+	
+	public BiblioItem getContactChunk(Document doc, BiblioItem biblio) {
+		//List<String> segmentation = doc.getTokenizations();
+		List<String> segmentation = doc.addTokenizedDocument();
+		int pos = -1;
+		for(int i=segmentation.size()-1; i>=0; i--) {
+			if ((segmentation.size() > i+2) && 
+				segmentation.get(i).equals("Please") && 
+				segmentation.get(i+2).equals("contact")) {
+				pos = i;
+				break;
+			}
+		}
+		StringBuilder builder = new StringBuilder(); 
+		if (pos != -1) {
+			for(int i=pos; pos<segmentation.size(); i++) {
+				builder.append(segmentation.get(i));
+				if ( (segmentation.get(i) == "\n") && (segmentation.get(i-1) == "\n") ) {
+					break;
+				}
+			}
+			String chunk = builder.toString();
+			String chunkLow = chunk.toLowerCase();
+			System.out.println(chunk);
+			// first the corresp author
+			boolean crp = false;
+			List<Person> authors = biblio.getFullAuthors();
+			for(Person author : authors) {
+				String lastName = author.getLastName().toLowerCase();
+				int ind1 = chunkLow.indexOf(lastName);
+				if ( (ind1 == -1) && lastName.contains("ö") ) {
+					ind1 = chunkLow.indexOf(lastName.replace("ö", "oe"));
+				}
+				if (ind1 != -1) {
+					if (!crp) {
+						author.setCorresp(true);
+						crp = true;
+					}
+					int ind2 = chunkLow.indexOf("mail", ind1+1);
+					if (ind2 != -1) {
+						int ind3 = chunkLow.indexOf(" ", ind2+1);
+						if (ind3 != -1) {
+							int ind4 = chunkLow.indexOf("\n", ind3+1);
+							if (ind4 != -1) {
+								String emailString = chunk.substring(ind3+1, ind4).trim(); 
+								if (authors.size() == 1) {
+									author.setEmail(emailString);
+								}
+								else {
+									// evaluate arity of email field
+									if (emailString.contains(";") || 
+										emailString.contains(",") || emailString.contains(" and ")) {
+											emailString = emailString.replace(",", ";");
+											biblio.setEmail(emailString);
+											biblio.attachEmails();
+									}
+									else {
+										author.setEmail(emailString);
+									}
+								}
+							}
+						}
+					}
+					int ind22 = chunkLow.indexOf("tel", ind1+1);
+					if (ind22 != -1) {
+						ind2 = ind22;
+					}
+					if (ind2 != -1) {
+						String affiliationChunk = chunk.substring(ind1+lastName.length(), ind2);
+						if (affiliationChunk.length() > 5) {
+							List<Affiliation> affiliations = 
+								parsers.getAffiliationAddressParser().processing(affiliationChunk);
+							fixAffiliation(affiliations, authors);
+							author.setAffiliations(affiliations);
+						}
+					}
+				}
+			}
+		}
+		return biblio;
+	}
+	
+	private void fixAffiliation(List<Affiliation> affiliations, List<Person> authors) {
+		// we have two typical errors that we can fix as post-processing: author name in affiliation
+		// and Inria recognized as settlement (because it was INRIA before)...  
+		for(Affiliation affiliation : affiliations) {
+			if (authors.size() > 1) {
+				for(Person author : authors) {
+					List<String> newInstitutions = new ArrayList<String>();
+					if (affiliation.getInstitutions() != null) {
+						for(String institution : affiliation.getInstitutions()) {
+							if (institution.contains(author.getLastName()) && 
+								institution.contains(author.getFirstName())) {
+								institution = institution.replace(author.getLastName(), " ");
+								institution = institution.replace(author.getFirstName(), " ");
+								institution = institution.trim();	
+							}
+							if (institution.length() > 0)
+								newInstitutions.add(institution);
+						}
+						affiliation.setInstitutions(newInstitutions);
+					}
+					
+					List<String> newDepartments = new ArrayList<String>();
+					if (affiliation.getDepartments() != null) {
+						for(String department : affiliation.getDepartments()) {
+							if (department.contains(author.getLastName()) && 
+								department.contains(author.getFirstName())) {
+								department = department.replace(author.getLastName(), " ");
+								department = department.replace(author.getFirstName(), " ");
+								department = department.trim();	
+							}
+							if (department.length() > 0)
+								newDepartments.add(department);
+						}
+						affiliation.setDepartments(newDepartments);
+					}
+					
+					List<String> newLaboratories = new ArrayList<String>();
+					if (affiliation.getLaboratories() != null) {
+						for(String laboratory : affiliation.getLaboratories()) {
+							if (laboratory.contains(author.getLastName()) && 
+								laboratory.contains(author.getFirstName())) {
+								laboratory = laboratory.replace(author.getLastName(), " ");
+								laboratory = laboratory.replace(author.getFirstName(), " ");
+								laboratory = laboratory.trim();	
+							}
+							if (laboratory.length() > 0)
+								newLaboratories.add(laboratory);
+						}
+						affiliation.setLaboratories(newLaboratories);
+					}
+				}
+			}
+			if (affiliation.getSettlement() != null) {
+				if (affiliation.getSettlement().toLowerCase().equals("inria")) {
+					affiliation.addInstitution("Inria");
+					affiliation.setSettlement(null);
+				}
+			}
+		}
+	}
+	
 }
