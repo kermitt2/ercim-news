@@ -11,6 +11,7 @@ import org.grobid.core.engines.Engine;
 import org.grobid.core.factory.GrobidFactory;
 import org.grobid.core.mock.MockContext;
 import org.grobid.core.utilities.GrobidProperties;
+import org.grobid.core.engines.config.GrobidAnalysisConfig;
 
 import java.util.Properties;
 import java.util.List;
@@ -133,7 +134,8 @@ public class ErcimProcess {
 					org.grobid.core.document.Document doc = 
 						new org.grobid.core.document.Document(documentSource);
 					TEIFormater teiFormater = new TEIFormater(doc);
-					StringBuffer tei = teiFormater.toTEIHeader(biblio, false, null, false);
+					StringBuffer tei = //teiFormater.toTEIHeader(biblio, false, null, false);
+					teiFormater.toTEIHeader(biblio, null, GrobidAnalysisConfig.builder().build());
 		            tei.append("\t</text>\n");
 		            tei.append("</TEI>\n");
 					File teiHeaderFile = new File(outArticlePath + File.separator + "header.tei.xml");
@@ -164,7 +166,7 @@ public class ErcimProcess {
 					BiblioItem extractedHeader = grobidProcess.runHeader(doc);
 					
 					// output the extended header in TEI
-					tei = teiFormater.toTEIHeader(extractedHeader, false, null, false);
+					tei = teiFormater.toTEIHeader(extractedHeader, null, GrobidAnalysisConfig.builder().build());
 					tei.append("\t</text>\n");
 					tei.append("</TEI>\n");
 					File grobidHeaderFile = new File(outArticlePath + File.separator + "header-grobid.tei.xml");

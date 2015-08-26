@@ -16,6 +16,8 @@ import org.grobid.core.engines.SegmentationLabel;
 import org.grobid.core.factory.GrobidFactory;
 import org.grobid.core.mock.MockContext;
 import org.grobid.core.utilities.GrobidProperties;
+import org.grobid.core.engines.config.GrobidAnalysisConfig;
+
 import org.grobid.core.exceptions.*;
 import org.grobid.core.main.*;
 
@@ -98,8 +100,8 @@ public class GrobidProcess {
 	public String runFullText(String pdfPath) {
 		String tei = null;
 		try {
-			Document resultDoc = parsers.getFullTextParser().processing(pdfPath, false, 
-							false, 0, null, -1, -1, false, true);
+			Document resultDoc = parsers.getFullTextParser().processing(new File(pdfPath), 
+				GrobidAnalysisConfig.builder().build());
 			tei = resultDoc.getTei();
 		} 
 		catch (Exception e) {
