@@ -30,7 +30,11 @@ public class HalFormater {
 	public StringBuilder format(BiblioItem biblioCatalogue, BiblioItem biblioExtracted, List<String> assets) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-		builder.append("<TEI xmlns=\"http://www.tei-c.org/ns/1.0\" xmlns:hal=\"http://hal.archives-ouvertes.fr/\">");
+		builder.append("<TEI xmlns=\"http://www.tei-c.org/ns/1.0\" xmlns:hal=\"http://hal.archives-ouvertes.fr/\" \n ");
+		builder.append("xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" \n " ); 
+		builder.append("xsi:schemaLocation=\"http://www.tei-c.org/ns/1.0 " + 
+		 	"https://api.archives-ouvertes.fr/documents/aofr-sword.xsd\">\n");	
+			
 		builder.append("\t<text>\n\t\t<body>\n\t\t\t<listBibl>\n\t\t\t\t<biblFull>\n");
 		builder.append("\t\t\t\t\t<titleStmt>\n");
 		// add lang attribute xml:lang="en" before the title
@@ -42,7 +46,7 @@ public class HalFormater {
 			else
 				builder.append("\t\t\t\t\t\t<author role=\"aut\">\n");
 			builder.append("\t\t\t\t\t\t\t<persName>\n");
-		    builder.append("\t\t\t\t\t\t\t\t<forename type=\"first\">"+author.getFirstName()+"<forename>\n");
+		    builder.append("\t\t\t\t\t\t\t\t<forename type=\"first\">"+author.getFirstName()+"</forename>\n");
 		    builder.append("\t\t\t\t\t\t\t\t<surname>"+author.getLastName()+"</surname>\n");
 		    builder.append("\t\t\t\t\t\t\t</persName>\n");
 			if ( (author.getEmail() != null) && (author.getEmail().trim().length()>0) )
@@ -53,7 +57,9 @@ public class HalFormater {
 			 if (author.getAffiliations() != null) {
 				List<Affiliation> affiliations = author.getAffiliations();
 				for(Affiliation affiliation : affiliations) {
-					builder.append("\t\t\t\t\t\t\t" + affiliation.toTEI() +"\n");
+					String aff = affiliation.toTEI();
+					aff = aff.replace("<affiliation>", "<affiliation ref=\"#struct-XXXX\">");
+					builder.append("\t\t\t\t\t\t\t" + aff +"\n");
 					//builder.append("\t\t\t\t\t\t\t<affiliation>"++"</affiliation>\n");
 			 	}
 			 }
@@ -71,6 +77,7 @@ public class HalFormater {
 				builder.append("\t\t\t\t\t\t\t<ref type=\"annex\" subtype=\"greenPublisher\" target=\"ftp://ftp.ccsd.cnrs.fr/"+asset+"\" n=\"1\"/>\n");
 			}
 		}
+		builder.append("\t\t\t\t\t\t</edition>\n");
 		builder.append("\t\t\t\t\t</editionStmt>\n");
 		builder.append("\t\t\t\t\t<publicationStmt>\n");
 		builder.append("\t\t\t\t\t\t<availability>\n");
@@ -107,7 +114,9 @@ public class HalFormater {
 			if (author.getAffiliations() != null) {
 				List<Affiliation> affiliations = author.getAffiliations();
 				for(Affiliation affiliation : affiliations) {
-					builder.append("\t\t\t\t\t\t\t\t\t" + affiliation.toTEI() +"\n");
+					String aff = affiliation.toTEI();
+					aff = aff.replace("<affiliation>", "<affiliation ref=\"#struct-XXXX\">");
+					builder.append("\t\t\t\t\t\t\t\t\t" + aff +"\n");
 					//builder.append("\t\t\t\t\t\t\t<affiliation>"++"</affiliation>\n");
 			 	}
 			}

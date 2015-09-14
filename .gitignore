@@ -2,3 +2,5 @@ target/*
 *.old
 resources/output/*
 *.log
+resources/hal/*
+*.zip
